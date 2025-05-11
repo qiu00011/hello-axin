@@ -105,19 +105,16 @@
     let current = 0;
 
     function showNextSlide() {
+      if (current < images.length - 1) {
       images[current].classList.remove('active');
       current++;
-
-      if (current >= images.length) {
-        clearInterval(slideTimer); // 停止切换
-        return;
-    }
-
-    images[current].classList.add('active');
+      images[current].classList.add('active');
+      setTimeout(showNextSlide, 5000); // 继续下一张
   }
+  // 如果到了最后一张，就不再继续
+}
 
-  const slideTimer = setInterval(showNextSlide, 5000); // 每5秒切换一次
-</script>
+setTimeout(showNextSlide, 5000);
 
   </script>
 </body>
