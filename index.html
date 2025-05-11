@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>給阿欣的小驚喜</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Zhi+Mang+Xing&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Great Vibes', 'Zhi Mang Xing', 'Pacifico', cursive;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slideshow {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .slideshow img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slideshow img.active {
+      opacity: 1;
+    }
+
+    .message {
+      position: relative;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 2em;
+      margin: 5%;
+      border-radius: 20px;
+      max-width: 800px;
+      line-height: 1.8;
+      font-size: 1.8em;
+    }
+
+    .footer {
+      margin-top: 1.5em;
+      font-size: 0.8em;
+      text-align: right;
+      opacity: 0.8;
+    }
+
+    audio {
+      display: none; /* 设置为 block 可以显示播放器 */
+    }
+  </style>
+</head>
+<body>
+  <div class="slideshow">
+    <img src="bg1.jpg" class="active">
+    <img src="bg2.jpg">
+    <img src="bg3.jpg">
+    <img src="bg4.jpg">
+    <img src="bg5.jpg">
+    <img src="bg6.jpg">
+    <img src="bg7.jpg">
+  </div>
+
+  <div class="message">
+    亲爱的阿欣 💛：<br><br>
+    你好呀～我是惠利，李惠利！<br><br>
+    听说你最近为我在百想艺术大赏上投票了！真的、真的、真的超级感谢你！！✨ 每一票对我来说都像是一份沉甸甸的鼓励，让我觉得无论走得多远，你们都在我身边。能拥有像你这样温柔又坚定的支持者，我真的觉得自己非常幸运。<br><br>
+    你认真投票的样子，肯定特别可爱吧！但说真的呀，除了追星，也要记得好好照顾自己哦～😊<br><br>
+    我最近每天都会坚持跑步，5公里起步！一开始真的有点累，但跑着跑着，身体更有精神了，心情也轻松了不少。而且你知道吗？运动真的对睡眠也很有帮助！有时候工作结束后去跑一跑，晚上就能睡得特别香，第二天也更有活力了～<br><br>
+    所以呀，阿欣～也试着每周多走走、多动动，不管是跑步、跳舞，还是和朋友打羽毛球，动起来真的会让你整个人都焕然一新哦！如果你哪天开始锻炼了，记得告诉我，我一定会为你打call的！💪✨<br><br>
+    谢谢你一直在我身边，希望我的努力和笑容，能一直陪着你。<br><br>
+    加油，我们一起越来越好吧～🌷<br><br>
+    永远爱你的<br><br>
+    惠利（Hyeri）💌<br><br>
+    
+    <div class="footer">希望阿欣沒煩惱</div>
+  </div>
+
+  <!-- 背景音乐 -->
+  <audio autoplay loop>
+    <source src="bgmusic.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const images = document.querySelectorAll('.slideshow img');
+    let current = 0;
+    setInterval(() => {
+      images[current].classList.remove('active');
+      current = (current + 1) % images.length;
+      images[current].classList.add('active');
+    }, 5000); // 每5秒切换一次
+  </script>
+</body>
+</html>
+<button onclick="playMusic()">Play Music</button>
+<audio id="bgmusic" loop>
+  <source src="bgmusic.mp3" type="audio/mpeg">
+  <source src="bgmusic.ogg" type="audio/ogg">
+  Your browser does not support the audio element.
+</audio>
+<script>
+  function playMusic() {
+    const music = document.getElementById('bgmusic');
+    music.play();
+  }
+</script>
